@@ -2,8 +2,8 @@
 // event listeners
 //========================
 document.addEventListener("deviceReady", connectToDatabase);
-document.getElementById("saveButton").addEventListener("click", saveButtonPressed);
-document.getElementById("showButton").addEventListener("click", showButtonPressed);
+document.getElementById("insert").addEventListener("click", insertPressed);
+document.getElementById("show").addEventListener("click", showPressed);
 
 // global variables
 var db = null;
@@ -69,38 +69,58 @@ function connectToDatabase() {
 
 // my functions go here
 //========================
-function saveButtonPressed() {
+function insertPressed() {
   // debug:
-  console.log("save button pressed!");
-  alert("save button pressed!");
+  console.log("insert button pressed!");
+  alert("insert button pressed!");
 
   // 1. get data from USER interface
-  var n = document.getElementById("nameBox").value;
+  //var n = document.getElementById("insert").value;
   //var d = document.getElementById("deptBox").value;
-  var s = document.getElementById("studentno").value;
+  //var s = document.getElementById("show").value;
 
   // DEBUG:
-  console.log("Name: " + n);
+  //console.log("Name: " + n);
   //console.log("Dept: " + d);
-  console.log("Availability: " + s);
+  //console.log("Availability: " + s);
 
   // 2. INSERT INTO DATABASE
-  db.transaction(
-        function(tx){
-      //INSERT INTO heroes (name, isAvailable) VALUES ("pritesh", "madt");
-            tx.executeSql( "INSERT INTO heroes(name, isAvailable) VALUES(?,?)",
-            [n, s],
-            onSuccessExecuteSql,
-            onError )
-        },
-        onError,
-        onReadyTransaction
-    )
+
+  // db.transaction(
+  //       function(tx){
+  //     //INSERT INTO heroes (name, isAvailable) VALUES ("pritesh", "madt");
+  //           tx.executeSql("INSERT INTO heroes"(name, isAvailable)) VALUES
+  //           ("Spiderman", 1)",
+  //           ("Thor", 1)",
+  //           ("Captain America", 0)",
+  //           ("Wonder Woman", 0)";
+  //
+  //         //  [n, s],
+  //           onSuccessExecuteSql,
+  //           onError )
+
+  // db.transaction(
+  //       function(tx){
+  //     //INSERT INTO heroes (name, isAvailable) VALUES ("pritesh", "madt");
+  //           (INSERT INTO heroes(name, isAvailable) VALUES
+  //           ('Spiderman', 1),
+  //           ('Thor', 1),
+  //           ('Captain America', 0),
+  //           ('Wonder Woman', 0);
+
+          //  [n, s],
+    //         onSuccessExecuteSql,
+    //         onError )
+    //
+    //     },
+    //     onError,
+    //     onReadyTransaction
+    // )
 
 
 }
 
-function showButtonPressed() {
+function showPressed() {
   //debug:
   console.log("show button pressed!");
   alert("show button pressed!");
