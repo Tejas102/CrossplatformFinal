@@ -5,6 +5,11 @@ document.addEventListener("deviceReady", connectToDatabase);
 document.getElementById("insert").addEventListener("click", insertPressed);
 document.getElementById("show").addEventListener("click", showPressed);
 
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.vibrate);
+}
+
 // global variables
 var db = null;
 
